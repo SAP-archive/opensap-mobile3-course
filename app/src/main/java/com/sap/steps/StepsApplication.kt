@@ -12,12 +12,14 @@ import android.hardware.SensorManager
 import android.os.IBinder
 import android.provider.Settings
 import android.util.Log
+import ch.qos.logback.classic.Level
 import com.sap.cloud.mobile.foundation.authentication.AppLifecycleCallbackHandler
 import com.sap.cloud.mobile.foundation.authentication.SamlConfiguration
 import com.sap.cloud.mobile.foundation.authentication.SamlInterceptor
 import com.sap.cloud.mobile.foundation.authentication.SamlWebViewProcessor
 import com.sap.cloud.mobile.foundation.common.ClientProvider
 import com.sap.cloud.mobile.foundation.common.SettingsParameters
+import com.sap.cloud.mobile.foundation.logging.Logging
 import com.sap.cloud.mobile.foundation.networking.AppHeadersInterceptor
 import com.sap.cloud.mobile.foundation.networking.CorrelationInterceptor
 import com.sap.cloud.mobile.foundation.networking.WebkitCookieJar
@@ -97,6 +99,7 @@ class StepsApplication: Application() {
         // SAP SDK Lifecycle handler used to determine the context of authentication challenges to display
         registerActivityLifecycleCallbacks(AppLifecycleCallbackHandler.getInstance())
         initializeHttpClient()
+        initializeLoggingAndUsage()
 
         initializaOfflineService()
 
@@ -201,6 +204,17 @@ class StepsApplication: Application() {
      */
     val settingsParameters by lazy {
         SettingsParameters(MOBILE_SERVICES_BASE_URL, APPLICATION_ID, deviceId, APPLICATION_VERSION)
+    }
+
+    /**
+     * Initializes the SAP logging framework with this application context. Only required when using the Mobile Services
+     * log upload feature.
+     */
+    private fun initializeLoggingAndUsage() {
+        Logging.initialize(this, Logging.ConfigurationBuilder()
+            .initialLevel(Level.DEBUG)
+            .logToConsole(true)
+            .build())
     }
 
     /**

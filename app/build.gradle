@@ -89,4 +89,8 @@ dependencies {
     implementation "com.sap.cloud.android:foundation:$sapSdkVersion"
     implementation "com.sap.cloud.android:odata:$sapSdkVersion"
     implementation "com.sap.cloud.android:offline-odata:$sapSdkVersion"
+
+    // Logging framework - SAP integrates with Logback but does not provide their own implementation
+    implementation 'com.github.tony19:logback-android:1.3.0-2'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
 }

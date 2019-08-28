@@ -3,6 +3,7 @@ package com.sap.steps
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.graphics.Color
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
@@ -14,13 +15,18 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.sap.cloud.mobile.foundation.common.ClientProvider
+import com.sap.cloud.mobile.foundation.logging.Logging
 import com.sap.steps.model.StepsViewModel
+import org.slf4j.LoggerFactory
 
 
 /**
  * Pedometer main activity that displays the daily number of steps walked and calories burnt.
  */
 class MainActivity : AppCompatActivity() {
+
+    val logger = LoggerFactory.getLogger(MainActivity::class.java)
 
     /**
      * Swipe refresh layout used to trigger data updates
@@ -64,6 +70,24 @@ class MainActivity : AppCompatActivity() {
         }
 
         swipeRefreshLayout.setOnRefreshListener(viewModel::refresh)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        uploadLoggingAndUsageData()
+    }
+
+    /**
+     * Uploads logs and usage data to Mobile Services in a fire-and-forget fashion, and only if network is available.git gui
+     */
+    private fun uploadLoggingAndUsageData() {
+        // This is fire and forget - you may register status listeners via Logging.addLogUploadListener()
+        // and/or by providing a log upload listener to UsageBroker#upload
+        if((getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo?.isConnected == true) {
+            // The following log message will be uploaded to Mobile Services
+            logger.debug("About to upload logs...")
+            Logging.uploadLog(ClientProvider.get(), (application as StepsApplication).settingsParameters)
+        }
     }
 
     /**
