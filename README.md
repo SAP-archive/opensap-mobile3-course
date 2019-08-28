@@ -10,11 +10,15 @@ Please follow the setup instructions below to get started.
 
 This repository contains an Android project which is the result of the exercises in Week 5 of the aforementioned openSAP course. In the `master` branch, you will find the final result of the exercises. Additionally, there are tagged commits which allow you to jump to the end of individual exercises. Use them to skip forward if you face issues or if you want to reset to the beginning of an exercise:
 
-* `git checkout pedometer` takes you to the solution of exercise 2 - a basic step counter app ("pedometer").
-* `git checkout offline` takes you to the solution of exercise 3 - adding OData Offline capabilities
-* `git checkout logging` takes you to the solution of exercises 4 and 5 - adding Logging and Usage Analytics capabilities
+* `git checkout exercise-2-start`
+* `git checkout exercise-3-start` takes you to the solution of exercise 2 - a basic step counter app - which is also the start of exercise 3.
+* `git checkout exercise-4-start` takes you to the solution of exercise 3 - adding OData Offline capabilities - which is also the start of exercise 4.
+* `git checkout exercise-5-start` takes you to the solution of exercise 4 - adding Logging  - which is also the start of exercise 5.
+* `git checkout master` takes you to the final app, which includes the solution of exercise 5 - adding Usage Analytics capabilities.
 
 Please note that checking out different versions may not work if you modify tracked files. You can run `git stash` to stash them, which allows you to bring them back later.
+
+As an alternative to working with Git branches, you can also download the corresponding ZIP in the [Releases tab](../../releases).
 
 ## Setup
 
@@ -22,8 +26,8 @@ You will need to have installed the [SAP Cloud Platform SDK for Android](https:/
 
 You can import the project in this repository in Android Studio:
 
-1. Clone this repository using Git
-2. Select the "Import project (Gradle, Eclipse ADT, etc)" option from either the launch screen or from the "File" menu.
+1. Clone this repository using Git, or download the ZIP from the Releases tab and extract it.
+2. Select the "Import project (Gradle, Eclipse ADT, etc.)" option from either the launch screen or "New > Import Project..." from the File menu.
 3. Browse to the cloned folder
 4. Select this folder for import.
 
