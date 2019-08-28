@@ -1,12 +1,12 @@
 package com.sap.steps.sensor
 
-import android.app.Application
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
+import com.sap.steps.StepsApplication
 import com.sap.steps.model.StepsDatabase
 import com.sap.steps.model.StepsRepository
 
@@ -15,12 +15,12 @@ import com.sap.steps.model.StepsRepository
  * Can optionally be configured to only listen to a single event, which may be used for scheduled jobs that should only
  * run briefly.
  */
-class StepsCounterListener(private val application: Application, private val once: Boolean = true): SensorEventListener {
+class StepsCounterListener(private val application: StepsApplication, private val once: Boolean = true): SensorEventListener {
 
     /**
      * Repository used to store daily step totals
      */
-    private val repository = StepsRepository(StepsDatabase.getInstance(application).stepsDao())
+    private val repository = StepsRepository(StepsDatabase.getInstance(application).stepsDao(), application)
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.let {

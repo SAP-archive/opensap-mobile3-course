@@ -23,6 +23,7 @@
         </activity>
         <service android:name=".sensor.StepsCounterService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name=".offline.OfflineSyncService" />
     </application>
 
 </manifest>

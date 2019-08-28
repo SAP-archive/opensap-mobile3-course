@@ -62,6 +62,8 @@ class MainActivity : AppCompatActivity() {
                 it?.let { Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show() }
             })
         }
+
+        swipeRefreshLayout.setOnRefreshListener(viewModel::refresh)
     }
 
     /**

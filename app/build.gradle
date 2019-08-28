@@ -6,7 +6,12 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'com.sap.odata.android'
+
 repositories {
+    google()
+    jcenter()
+    mavenLocal()
     maven { url 'https://jitpack.io' }
 }
 
@@ -24,6 +29,33 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Required for compatibility with type annotations used in SAP generated proxy classes
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+odata {
+    verbose true
+    services {
+        espmcontainer {
+            schemaFile file("src/main/res/raw/metadata.xml")
+            packageName "com.sap.steps.model"
+            serviceClass "CanteenService"
+        }
+    }
+}
+
+
+android {
+    defaultConfig {
+        ndk {
+            // Exclude 64 bit libraries.
+            abiFilters "armeabi-v7a", "x86"
         }
     }
 }
@@ -51,4 +83,10 @@ dependencies {
 
     // Charts
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // SAP APIs - SAP business data access and user onboarding
+    // sapSdkVersion defined in gradle.properties
+    implementation "com.sap.cloud.android:foundation:$sapSdkVersion"
+    implementation "com.sap.cloud.android:odata:$sapSdkVersion"
+    implementation "com.sap.cloud.android:offline-odata:$sapSdkVersion"
 }

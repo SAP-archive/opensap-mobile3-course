@@ -6,6 +6,7 @@ import android.hardware.Sensor
 import android.hardware.SensorManager
 import android.support.v4.app.JobIntentService
 import android.util.Log
+import com.sap.steps.StepsApplication
 
 /**
  * Job intent service that can be scheduled to update the pedometer database.
@@ -19,7 +20,8 @@ class StepsCounterService : JobIntentService() {
 
         stepCounterSensor?.also {
             Log.d("_steps", "Registering trigger listener")
-            sensorManager.registerListener(StepsCounterListener(application), it, SensorManager.SENSOR_DELAY_NORMAL)
+            sensorManager.registerListener(StepsCounterListener(application as StepsApplication), it,
+                SensorManager.SENSOR_DELAY_NORMAL)
         }
     }
 
