@@ -4,6 +4,12 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -30,4 +36,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Room - local persistence for daily step tracking
+    implementation "android.arch.persistence.room:runtime:$androidExtensionVersion"
+    kapt "android.arch.persistence.room:compiler:$androidExtensionVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$androidExtensionVersion"
+
+    // LiveData - UI data binding
+    implementation "android.arch.lifecycle:extensions:$androidExtensionVersion"
+
+    // Coroutines - thread management
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$androidExtensionVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$androidExtensionVersion"
+
+    // Charts
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Steps</string>
+    <string name="stepsWalkedToday">Steps walked today</string>
+    <string name="noBookingsFound">No menu bookings found for today.</string>
+    <string name="syncing">Synchronizing&#8230;</string>
+    <string name="noNetwork">No network connection available</string>
+    <string name="kcalBurnt">kcal burnt</string>
+    <string name="kcalRemaining">kcal remaining</string>
+    <string name="stepsToday">%d steps walked today</string>
 </resources>
