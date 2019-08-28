@@ -17,6 +17,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.sap.cloud.mobile.foundation.common.ClientProvider
 import com.sap.cloud.mobile.foundation.logging.Logging
+import com.sap.cloud.mobile.foundation.usage.UsageBroker
 import com.sap.steps.model.StepsViewModel
 import org.slf4j.LoggerFactory
 
@@ -87,6 +88,8 @@ class MainActivity : AppCompatActivity() {
             // The following log message will be uploaded to Mobile Services
             logger.debug("About to upload logs...")
             Logging.uploadLog(ClientProvider.get(), (application as StepsApplication).settingsParameters)
+
+            UsageBroker.upload(this, false, true)
         }
     }
 

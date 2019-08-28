@@ -23,6 +23,7 @@ import com.sap.cloud.mobile.foundation.logging.Logging
 import com.sap.cloud.mobile.foundation.networking.AppHeadersInterceptor
 import com.sap.cloud.mobile.foundation.networking.CorrelationInterceptor
 import com.sap.cloud.mobile.foundation.networking.WebkitCookieJar
+import com.sap.cloud.mobile.foundation.usage.UsageBroker
 import com.sap.cloud.mobile.odata.DataServiceProvider
 import com.sap.cloud.mobile.odata.core.AndroidSystem
 import com.sap.cloud.mobile.odata.offline.OfflineODataDefiningQuery
@@ -215,6 +216,8 @@ class StepsApplication: Application() {
             .initialLevel(Level.DEBUG)
             .logToConsole(true)
             .build())
+        UsageBroker.initialize(this, true)
+        UsageBroker.start(this, settingsParameters)
     }
 
     /**
