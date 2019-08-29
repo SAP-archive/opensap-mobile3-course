@@ -22,7 +22,7 @@ As an alternative to working with Git branches, you can also download the corres
 
 ## Setup
 
-You will need to have installed the [SAP Cloud Platform SDK for Android](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-android-15508.html).
+You will need to have installed **version 2.1.1** the [SAP Cloud Platform SDK for Android](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-android-15508.html).
 
 You can import the project in this repository in Android Studio:
 
