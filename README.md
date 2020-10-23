@@ -1,6 +1,8 @@
 # opensap-mobile3-course
 Android Exercises for the [2019 openSAP Mobile course](https://open.sap.com/courses/mobile3).
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/opensap-mobile3-course)](https://api.reuse.software/info/github.com/SAP-samples/opensap-mobile3-course)
+
 ### Evolved Web Apps with SAPUI5 (ui52)
 
 Welcome to your learning journey to develop mobile apps with SAP Cloud Platform Mobile Services. This repository contains the code for week 5 of the openSAP course *Build Mobile Applications with SAP Cloud Platform Mobile Services* (mobile3).
