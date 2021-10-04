@@ -5,7 +5,7 @@ Android exercises for the [2019 openSAP Mobile course](https://open.sap.com/cour
 
 ### Evolved Web Apps with SAPUI5 (ui52)
 
-Welcome to your learning journey to develop mobile apps with SAP Cloud Platform Mobile Services. This repository contains the code for week 5 of the openSAP course *Build Mobile Applications with SAP Cloud Platform Mobile Services* (mobile3).
+Welcome to your learning journey to develop mobile apps with SAP Mobile Services. This repository contains the code for week 5 of the openSAP course *Build Mobile Applications with SAP Mobile Services* (mobile3).
 Please follow the setup instructions below to get started.
 
 ## Directions
@@ -24,7 +24,7 @@ As an alternative to working with Git branches, you can also download the corres
 
 ## Setup
 
-You will need to have installed **version 2.1.1** the [SAP Cloud Platform SDK for Android](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-android-15508.html).
+You will need to have installed **version 2.1.1** the [SAP BTP SDK for Android](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-android-15508.html).
 
 You can import the project in this repository in Android Studio:
 
